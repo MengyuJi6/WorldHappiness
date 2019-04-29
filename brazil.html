@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>World Happiness Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Free HTML5 Website Template by ProBootstrap.com" />
+    <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="ProBootstrap.com" />
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  </head>
+  <body>
+
+    <aside class="probootstrap-aside js-probootstrap-aside">
+      <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
+      <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
+
+        <a href="index.html" class="mb-2 d-block probootstrap-logo" style="color: #37bbff"> World Happiness </a>
+        <p class="mb-0"> Always keep an eye on the world happiness. </p>
+      </div>
+      <div class="probootstrap-overflow">
+        <nav class="probootstrap-nav">
+          <ul>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="index.html">Home</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">Visualization</a></li>
+            <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="services.html">Search</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Prediction</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Report</a></li>
+          </ul>
+        </nav>
+        <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
+          <ul class="list-unstyled d-flex probootstrap-aside-social">
+            <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+          </ul>
+        </footer>
+      </div>
+    </aside>
+
+
+    <main role="main" class="probootstrap-main js-probootstrap-main">
+      <div class="probootstrap-bar">
+        <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
+        <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></a></div>
+      </div>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-12">
+            <div class="row">
+              <div class="col-xl-8 col-lg-12 mx-auto">
+                <h1 class="mb-3">Brazil</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div id="s_country"></div>
+        <div id="s_region"></div>
+        <div id="s_rank"></div>
+        <div id="s_score"></div>
+
+        <!--Here are the graphs-->
+        <br>
+        <div class="row">
+          <div id="chartContainer_line" style="height:400px; width: 45%;"></div>
+          <div id="chartContainer_bar" style="height:400px; width: 45%;"></div>
+        </div>
+
+        <br><br>
+        <div class="row">
+          <div id="chartContainer_2018" style="height:300px; width: 30%;"></div>
+          <div id="chartContainer_2017" style="height:300px; width: 30%;"></div>
+          <div id="chartContainer_2016" style="height:300px; width: 30%;"></div>
+        </div>
+
+        <br><br>
+
+      </div>
+
+      <div class="container-fluid d-md-none">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-unstyled d-flex probootstrap-aside-social">
+              <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+              <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+              <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <script>
+      var rank_2018, rank_2017, rank_2016;
+      var score_2018, score_2017, score_2016;
+
+      function search(){
+        var country = 'Brazil';
+        var s_region = document.getElementById("s_region");
+        var s_rank = document.getElementById("s_rank");
+        var s_score = document.getElementById("s_score");
+
+        d3.csv("data/2018.csv", function(data){
+        $('#s_country').empty();
+        $('#s_region').empty();
+        $('#s_rank').empty();
+        $('#s_score').empty();
+        $('#chartContainer_2018').empty();
+        $('#chartContainer_2017').empty();
+        $('#chartContainer_2016').empty();
+
+        for(var i=0;i<data.length;i++){
+          if(data[i].Country == country){
+            rank_2018 = parseFloat(data[i].Rank);
+            score_2018 = parseFloat(data[i].Score);
+
+            s_country.append('Country: ' + country);
+            s_region.append('Region: ' + data[i].Region);
+            s_rank.append('Happiness Rank: ' + data[i].Rank);
+            s_score.append('Happiness Score: ' + data[i].Score);
+
+            var Economy = parseFloat(data[i].Economy);
+            var Family = parseFloat(data[i].Family);
+            var Health = parseFloat(data[i].Health);
+            var Freedom = parseFloat(data[i].Freedom);
+            var Generosity = parseFloat(data[i].Generosity);
+            var Trust = parseFloat(data[i].Trust);
+            var Dystopia = parseFloat(data[i].Dystopia);
+
+
+            var chart = new CanvasJS.Chart("chartContainer_2018", {
+            animationEnabled: true,
+            title: {
+              text: "Factors that Affecting Happiness Score in 2018"
+            },
+            data: [{
+              type: "pie",
+              startAngle: 240,
+              yValueFormatString: "##0.00\"%\"",
+              indexLabel: "{label} {y}",
+              dataPoints: [
+                {y: Economy, label: "Economy"},
+                {y: Family, label: "Family"},
+                {y: Health, label: "Health"},
+                {y: Freedom, label: "Freedom"},
+                {y: Generosity, label: "Generosity"},
+                {y: Trust, label: "Trust"},
+                {y: Dystopia, label: "Dystopia Residual"},
+                ]
+              }]
+            });
+            chart.render();
+          }
+        }
+
+      });
+
+      d3.csv("data/2017.csv", function(data){
+
+        for(var j=0;j<data.length;j++){
+          if(data[j].Country == country){
+            rank_2017 = parseFloat(data[j].Rank);
+            score_2017 = parseFloat(data[j].Score);
+
+            var Economy = parseFloat(data[j].Economy);
+            var Family = parseFloat(data[j].Family);
+            var Health = parseFloat(data[j].Health);
+            var Freedom = parseFloat(data[j].Freedom);
+            var Generosity = parseFloat(data[j].Generosity);
+            var Trust = parseFloat(data[j].Trust);
+            var Dystopia = parseFloat(data[j].Dystopia);
+
+            var chart = new CanvasJS.Chart("chartContainer_2017", {
+            animationEnabled: true,
+            title: {
+              text: "Factors that Affecting Happiness Score in 2017"
+            },
+            data: [{
+              type: "pie",
+              startAngle: 240,
+              yValueFormatString: "##0.00\"%\"",
+              indexLabel: "{label} {y}",
+              dataPoints: [
+                {y: Economy, label: "Economy"},
+                {y: Family, label: "Family"},
+                {y: Health, label: "Health"},
+                {y: Freedom, label: "Freedom"},
+                {y: Generosity, label: "Generosity"},
+                {y: Trust, label: "Trust"},
+                {y: Dystopia, label: "Dystopia Residual"},
+                ]
+              }]
+            });
+            chart.render();
+          }
+        }
+
+      });
+
+      d3.csv("data/2016.csv", function(data){
+
+        for(var j=0;j<data.length;j++){
+          if(data[j].Country == country){
+            rank_2016 = parseFloat(data[j].Rank);
+            score_2016 = parseFloat(data[j].Score);
+
+            var Economy = parseFloat(data[j].Economy);
+            var Family = parseFloat(data[j].Family);
+            var Health = parseFloat(data[j].Health);
+            var Freedom = parseFloat(data[j].Freedom);
+            var Generosity = parseFloat(data[j].Generosity);
+            var Trust = parseFloat(data[j].Trust);
+            var Dystopia = parseFloat(data[j].Dystopia);
+
+            var chart = new CanvasJS.Chart("chartContainer_2016", {
+            animationEnabled: true,
+            title: {
+              text: "Factors that Affecting Happiness Score in 2016"
+            },
+            data: [{
+              type: "pie",
+              startAngle: 240,
+              yValueFormatString: "##0.00\"%\"",
+              indexLabel: "{label} {y}",
+              dataPoints: [
+                {y: Economy, label: "Economy"},
+                {y: Family, label: "Family"},
+                {y: Health, label: "Health"},
+                {y: Freedom, label: "Freedom"},
+                {y: Generosity, label: "Generosity"},
+                {y: Trust, label: "Trust"},
+                {y: Dystopia, label: "Dystopia Residual"},
+                ]
+              }]
+            });
+            chart.render();
+          }
+        }
+
+        <!-- Line -->
+        var average_score = (score_2018 + score_2017 + score_2016)/3;
+        console.log(average_score);
+
+        var chart = new CanvasJS.Chart("chartContainer_line", {
+        animationEnabled: true,
+        title:{
+            text: "Happiness Score Trend"
+        },
+        axisY: {
+            title: "Happiness Score",
+            includeZero: false
+        },
+        axisX: {
+            title: "Year"
+        },
+        data: [{
+          type: "line",
+          indexLabel: "{y}",
+          dataPoints: [
+            { x: 1, y: score_2016, label: "2016"},
+            { x: 2, y: score_2017,  label: "2017" },
+            { x: 3, y: score_2018,  label: "2018"}
+            ]
+          }]
+          });
+        chart.render();
+
+        <!-- Histogram -->
+        var chart = new CanvasJS.Chart("chartContainer_bar",
+        {
+          animationEnabled: true,
+          title:{
+            text: "Happiness Rank Trend"
+          },
+          axisY: {
+            title: "Happiness Score",
+            includeZero: false
+          },
+          axisX: {
+            title: "Year"
+          },
+          data: [
+          {
+            indexLabel: "{y}",
+            dataPoints: [
+            { x: 1, y: rank_2016, label: "2016"},
+            { x: 2, y: rank_2017,  label: "2017" },
+            { x: 3, y: rank_2018,  label: "2018"}
+            ]
+          }
+          ]
+        });
+
+        chart.render();
+
+      });
+
+
+
+      }
+
+      search();
+
+    </script>
+    
+  </body>
+</html>

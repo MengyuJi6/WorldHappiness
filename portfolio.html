@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title> World Happiness Analysis </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Free HTML5 Website Template by ProBootstrap.com" />
+    <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="ProBootstrap.com" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+          font-family: sans-serif;
+          background: white;
+        }
+        h2 {
+          margin: 5px 0;
+        }
+        #wrapper {
+          width: 700px;
+          margin: 0 auto;
+          background: white;
+          padding: 10px 15px;
+          border-radius: 10px;
+        }
+        input {
+          margin: 5px 10px;
+        }
+        button {
+          font-size: 18px;
+          padding: 10px;
+          margin: 20px 0;
+          color: white;
+          border: 0;
+          border-radius: 10px;
+          border-bottom: 3px solid #333;
+        }
+        #submit {
+          background: #1E90FF;
+        }
+        #reset {
+          background: #9ACD32;
+        }
+        #answer {
+          border: 1px dashed #ccc;
+          background: #eee;
+          padding: 10px;
+        }
+    </style>
+
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  </head>
+  <body>
+    
+    <aside class="probootstrap-aside js-probootstrap-aside">
+      <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
+      <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
+        
+        <a href="index.html" class="mb-2 d-block probootstrap-logo" style="color: #37bbff"> World Happiness </a>
+        <p class="mb-0"> Always keep an eye on the world happiness. </p>
+      </div>
+      <div class="probootstrap-overflow">
+        <nav class="probootstrap-nav">
+          <ul>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="index.html">Home</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">Visualization</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Search</a></li>
+            <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="portfolio.html">Prediction</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Report</a></li>
+          </ul>
+        </nav>
+        <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
+          <ul class="list-unstyled d-flex probootstrap-aside-social">
+            <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+          </ul>
+        </footer>
+      </div>
+    </aside>
+
+
+    <main role="main" class="probootstrap-main js-probootstrap-main">
+      <div class="probootstrap-bar">
+        <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
+        <div class="probootstrap-main-site-logo"><a href="index.html">World Happiness</a></a></div>
+      </div>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-12">
+            <div class="row">
+              <div class="col-xl-8 col-lg-12 mx-auto">
+                <h1 class="mb-3"> Predict Your Happiness Score </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="wrapper">
+          <p>What kind of happiness level are you? Take this questionnaire to find out!</p>
+            <div class="row">
+
+            </div>
+
+          <form id="quiz">
+            <h5> 1. Please input your country: </h5>
+            <input type="text" id="country" style="height:50px;width:400px" />
+
+              <!-- Question 1 -->
+            <h5> 2. Social support: If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them, or not? </h5>
+            <label><input type="radio" name="q1" value="0.5">
+             Yes
+            </label><br />
+            <label><input type="radio" name="q1" value="0">
+              No
+            </label><br />
+
+            <!-- Question 2 -->
+            <h5> 3. Freedom: Are you satisfied or dissatisfied with your freedom to choose what you do with your life? </h5>
+            <label><input type="radio" name="q2" value="1">
+              Yes
+            </label><br />
+            <label><input type="radio" name="q2" value="0">
+              No
+            </label><br />
+
+            <!-- Question 3 -->
+            <h5> 4. Generosity: Have you donated money to a charity in the past month?” on GDP per capita </h5>
+            <!-- Choices for the third question -->
+            <label><input type="radio" name="q3" value="1">
+              Yes
+            </label><br />
+            <label><input type="radio" name="q3" value="0">
+              No
+            </label><br />
+
+            <!-- Question 4 -->
+            <h5> 5. Trust: Is corruption widespread throughout the government or not?</h5>
+            <!-- Choices for the fourth question -->
+            <label><input type="radio" name="q4" value="1">
+              Yes
+            </label><br />
+            <label><input type="radio" name="q4" value="0">
+              No
+            </label><br />
+
+            <!-- Question 5 -->
+            <h5> 6. Trust: Is corruption widespread within businesses or not? </h5>
+            <!-- Choices for the fourth question -->
+            <label><input type="radio" name="q5" value="1">
+              Yes
+            </label><br />
+            <label><input type="radio" name="q5" value="0">
+              No
+            </label><br />
+
+          <button type="button" id="submit" onclick="submitAnswer()">Submit Your Answers</button>
+          <button type="button" id="reset" onclick="resetAnswer()">Reset</button>
+          </form>
+
+          <!--<div id="answer">Your result will show up here!-->
+          <div id="name"></div> <br>
+          <div id="economy"></div> <br>
+          <div id="dystopia"></div> <br>
+          <div id="family"></div> <br>
+          <div id="freedom"></div> <br>
+          <div id="generosity"></div> <br>
+          <div id="trust"></div> <br><br>
+          <div id="sumscore"></div>
+          <!--</div>-->
+        </div>
+
+        <div class="container-fluid d-md-none">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="list-unstyled d-flex probootstrap-aside-social">
+                <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+                <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+                <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script>
+        function submitAnswer() {
+
+          var country = document.getElementById("country").value;
+          var name = document.getElementById("name");
+          var economy = document.getElementById("economy");
+          var dystopia = document.getElementById("dystopia");
+          var family = document.getElementById("family");
+          var freedom = document.getElementById("freedom");
+          var generosity = document.getElementById("generosity");
+          var trust = document.getElementById("trust");
+          var sumscore = document.getElementById("sumscore");
+
+          d3.csv("data/2018.csv", function(data){
+            var choices = document.getElementsByTagName("input");
+            console.log(choices[1].value);
+
+            if(choices[1].checked){
+                var myFamily = choices[1].value;
+            }
+            else{
+                var myFamily = choices[2].value;
+            }
+
+            if(choices[3].checked){
+                var myFreedom = choices[3].value;
+            }
+            else{
+                var myFreedom = choices[4].value;
+            }
+
+            if(choices[5].checked){
+                var myGenerosity = choices[5].value;
+            }
+            else{
+                var myGenerosity = choices[6].value;
+            }
+
+            if(choices[7].checked && choices[9].checked){
+                var myTrust = (choices[7].value + choices[9].value)/2;
+            }
+            else if(choices[8].checked && choices[10].checked){
+                var myTrust = (choices[8].value + choices[10].value)/2;
+            }
+            else {
+                var myTrust = 0.5;
+            }
+
+
+            $('#quiz').empty();
+            $('#answer').empty();
+            var sum = 0;
+
+            for (var j=0;j<data.length;j++){
+              if(data[j].Country == country){
+                name.append('Country: ' + country);
+                economy.append('Country Avg (GDP per capita): ' + data[j].Economy);
+                dystopia.append('Dystopia Resident: ' + data[j].Dystopia);
+                family.append('Your Family Score: ' + myFamily + ' (Country Avg: ' + data[j].Family + ' )');
+                freedom.append('Your Freedom Score: ' + myFreedom + ' (Country Avg: ' + data[j].Freedom + ' )');
+                generosity.append('Your Generosity Score: ' + myGenerosity + ' (Country Avg: ' + data[j].Generosity + ' )');
+                trust.append('Your Freedom Score: ' + myTrust + ' (Country Avg: ' + data[j].Trust + ' )');
+
+                sum = parseFloat(data[j].Economy) + parseFloat(data[j].Dystopia) + parseFloat(myFamily) + parseFloat(myFreedom) + parseFloat(myGenerosity) + + parseFloat(myTrust);
+                sumscore.append('Your Final Score: ' + sum + ' (Country Score: ' + data[j].Score + ' )');
+              }
+            }
+          });
+        };
+
+        function resetAnswer() {
+          var answerbox = document.getElementById('answer');
+          answerbox.innerHTML = "Your result will show up here!";
+
+          console.log("callll");
+        }
+    </script>
+
+    
+  </body>
+</html>

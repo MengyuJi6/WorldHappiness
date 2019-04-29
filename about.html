@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>World Happiness Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Free HTML5 Website Template by ProBootstrap.com" />
+    <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="ProBootstrap.com" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+
+        <style>
+      .select-css {
+        display: block;
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: 700;
+        color: #444;
+        line-height: 1.3;
+        padding: .6em 1.4em .5em .8em;
+        width: 30%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        border: 1px solid #aaa;
+        box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+        border-radius: .5em;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #ffffff;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+      }
+    .select-css::-ms-expand {
+        display: none;
+    }
+    .select-css:hover {
+        border-color: #888;
+    }
+    .select-css:focus {
+        border-color: #aaa;
+        <!--box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);-->
+        <!--box-shadow: 0 0 0 3px -moz-mac-focusring;-->
+        color: #222;
+        outline: none;
+    }
+    .select-css option {
+        font-weight:normal;
+    }
+    </style>
+
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="http://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+  </head>
+  <body>
+    
+    <aside class="probootstrap-aside js-probootstrap-aside">
+      <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
+      <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
+        
+        <a href="index.html" class="mb-2 d-block probootstrap-logo" style="color: #37bbff"> World Happiness </a>
+        <p class="mb-0"> Always keep an eye on the world happiness. </p>
+      </div>
+      <div class="probootstrap-overflow">
+        <nav class="probootstrap-nav">
+          <ul>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="index.html">Home</a></li>
+            <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="about.html">Visualization</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Search</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Prediction</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Report</a></li>
+          </ul>
+        </nav>
+        <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
+          <ul class="list-unstyled d-flex probootstrap-aside-social">
+            <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+            <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+          </ul>
+        </footer>
+      </div>
+    </aside>
+
+
+    <main role="main" class="probootstrap-main js-probootstrap-main">
+      <div class="probootstrap-bar">
+        <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
+        <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></a></div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <h2 class="h1 mb-5 mt-0">Visualization and Analyzation</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <select id = "visualize" class="select-css" onChange="OnSelectedIndexChange()">
+            <option value="5"> Main </option>
+            <option value="1"> General Information </option>
+            <option value="2"> Factor Correlation </option>
+            <option value="3"> Economy Influence </option>
+            <option value="4"> Other Influence </option>
+          </select>
+        </div>
+
+        <div id="vis-result" class="row mb-5">
+          <img src="image/visualization/wordcloud.png">
+        </div>
+        <br>
+        <div id="vis-result2" class="row mb-5"></div>
+
+        <br><br>
+        <!--<div class="row mb-5">-->
+          <!--<div class="col-md-12">-->
+            <!--<div class="owl-carousel probootstrap-owl">-->
+              <!--<div class="item">-->
+                <!--<div class="p-4 border">-->
+                  <!--<h4> Happiness Rate </h4>-->
+                <!--</div>-->
+                <!--<img src="image/happiness_rate.png" class="img-fluid">-->
+                <!--<p> Display and compare happiness rate for different regions. </p>-->
+              <!--</div>-->
+              <!--<div class="item">-->
+                <!--<div class="p-4 border">-->
+                  <!--<h4> Economy Rate </h4>-->
+                <!--</div>-->
+                <!--<img src="image/economy_rate.png" class="img-fluid" alt="Free Template by ProBootstrap.com">-->
+                <!--<p> Display and compare happiness rate for different regions. </p>-->
+              <!--</div>-->
+              <!--<div class="item">-->
+                <!--<div class="p-4 border">-->
+                  <!--<h4> Influence Factors </h4>-->
+                <!--</div>-->
+                <!--<img src="image/factors.png" class="img-fluid" alt="Free Template by ProBootstrap.com">-->
+                <!--<p> Display different factors that counted in happiness scores</p>-->
+              <!--</div>-->
+              <!--<div class="item">-->
+                <!--<img src="image/percentage.png" class="img-fluid" alt="Free Template by ProBootstrap.com">-->
+                <!--<div class="p-4 border border-top-0">-->
+                  <!--<h4> Percentage </h4>-->
+                  <!--<p> Box plots for display in-region scale </p>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+
+      <div class="container-fluid d-md-none">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-unstyled d-flex probootstrap-aside-social">
+              <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+              <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+              <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <!--<script>-->
+    <!--d3.csv("data/2018.csv", function(data){-->
+    <!--// List of words-->
+    <!--var myWords = ["Hello", "Everybody", "How", "Are", "You", "Today", "It", "Is", "A", "Lovely", "Day", "I", "Love", "Coding", "In", "My", "Van", "Mate"]-->
+
+    <!--// set the dimensions and margins of the graph-->
+    <!--var margin = {top: 10, right: 10, bottom: 10, left: 10},-->
+        <!--width = 450 - margin.left - margin.right,-->
+        <!--height = 450 - margin.top - margin.bottom;-->
+
+    <!--// append the svg object to the body of the page-->
+    <!--var svg = d3.select("#wordcloud").append("svg")-->
+        <!--.attr("width", width + margin.left + margin.right)-->
+        <!--.attr("height", height + margin.top + margin.bottom)-->
+      <!--.append("g")-->
+        <!--.attr("transform",-->
+              <!--"translate(" + margin.left + "," + margin.top + ")");-->
+
+    <!--var layout = d3.layout.cloud()-->
+      <!--.size([width, height])-->
+      <!--.words(myWords.map(function(d) { return {text: d}; }))-->
+      <!--.padding(10)-->
+      <!--.fontSize(60)-->
+      <!--.on("end", draw);-->
+    <!--layout.start();-->
+
+    <!--// This function takes the output of 'layout' above and draw the words-->
+    <!--// Better not to touch it. To change parameters, play with the 'layout' variable above-->
+    <!--function draw(words) {-->
+      <!--svg-->
+        <!--.append("g")-->
+          <!--.attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")-->
+          <!--.selectAll("text")-->
+            <!--.data(words)-->
+          <!--.enter().append("text")-->
+            <!--.style("font-size", function(d) { return d.size + "px"; })-->
+            <!--.attr("text-anchor", "middle")-->
+            <!--.attr("transform", function(d) {-->
+              <!--return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";-->
+            <!--})-->
+            <!--.text(function(d) { return d.text; });-->
+      <!--}-->
+    <!--});-->
+    <!--</script>-->
+
+    <script>
+      function OnSelectedIndexChange()
+        {
+        var img = document.createElement("img");
+        var img2 = document.createElement("img");
+        var result = document.getElementById("vis-result");
+        var result2 = document.getElementById("vis-result2");
+
+        if (document.getElementById('visualize').value == "5"){
+          $('#vis-result').empty();
+          $('#vis-result2').empty();
+          img.src = "image/visualization/wordcloud.png";
+          result.appendChild(img);
+        }
+        else if (document.getElementById('visualize').value == "1"){
+          $('#vis-result').empty();
+          $('#vis-result2').empty();
+          img.src = "image/visualization/happiness_rate.png";
+          img2.src = "image/visualization/percentage.png";
+          result.appendChild(img);
+          result2.appendChild(img2);
+        }
+        else if (document.getElementById('visualize').value == "2"){
+          img.src = "image/visualization/correlation.png";
+          $('#vis-result').empty();
+          $('#vis-result2').empty();
+          result.appendChild(img);
+        }
+        else if (document.getElementById('visualize').value == "3"){
+          img.src = "image/visualization/economy_rate.png";
+          $('#vis-result').empty();
+          $('#vis-result2').empty();
+          result.appendChild(img);
+        }
+        else if (document.getElementById('visualize').value == "4"){
+          img.src = "image/prediction/randomtree.png";
+          $('#vis-result').empty();
+          $('#vis-result2').empty();
+          result.appendChild(img);
+        }
+      }
+    </script>
+    
+  </body>
+</html>
