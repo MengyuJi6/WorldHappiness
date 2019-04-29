@@ -131,7 +131,7 @@
 
               <!-- Question 1 -->
             <h5> 2. Social support: If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them, or not? </h5>
-            <label><input type="radio" name="q1" value="0.5">
+            <label><input type="radio" name="q1" value="1.5">
              Yes
             </label><br />
             <label><input type="radio" name="q1" value="0">
@@ -160,20 +160,20 @@
             <!-- Question 4 -->
             <h5> 5. Trust: Is corruption widespread throughout the government or not?</h5>
             <!-- Choices for the fourth question -->
-            <label><input type="radio" name="q4" value="1">
+            <label><input type="radio" name="q4" value="0">
               Yes
             </label><br />
-            <label><input type="radio" name="q4" value="0">
+            <label><input type="radio" name="q4" value="1">
               No
             </label><br />
 
             <!-- Question 5 -->
             <h5> 6. Trust: Is corruption widespread within businesses or not? </h5>
             <!-- Choices for the fourth question -->
-            <label><input type="radio" name="q5" value="1">
+            <label><input type="radio" name="q5" value="0">
               Yes
             </label><br />
-            <label><input type="radio" name="q5" value="0">
+            <label><input type="radio" name="q5" value="1">
               No
             </label><br />
 
@@ -247,10 +247,10 @@
             }
 
             if(choices[7].checked && choices[9].checked){
-                var myTrust = (choices[7].value + choices[9].value)/2;
+                var myTrust = 0;
             }
             else if(choices[8].checked && choices[10].checked){
-                var myTrust = (choices[8].value + choices[10].value)/2;
+                var myTrust = 1;
             }
             else {
                 var myTrust = 0.5;
@@ -269,7 +269,7 @@
                 family.append('Your Family Score: ' + myFamily + ' (Country Avg: ' + data[j].Family + ' )');
                 freedom.append('Your Freedom Score: ' + myFreedom + ' (Country Avg: ' + data[j].Freedom + ' )');
                 generosity.append('Your Generosity Score: ' + myGenerosity + ' (Country Avg: ' + data[j].Generosity + ' )');
-                trust.append('Your Freedom Score: ' + myTrust + ' (Country Avg: ' + data[j].Trust + ' )');
+                trust.append('Your Trust Score: ' + myTrust + ' (Country Avg: ' + data[j].Trust + ' )');
 
                 sum = parseFloat(data[j].Economy) + parseFloat(data[j].Dystopia) + parseFloat(myFamily) + parseFloat(myFreedom) + parseFloat(myGenerosity) + + parseFloat(myTrust);
                 sumscore.append('Your Final Score: ' + sum + ' (Country Score: ' + data[j].Score + ' )');
