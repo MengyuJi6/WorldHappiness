@@ -98,7 +98,7 @@
             <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="about.html">Visualization</a></li>
             <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Search</a></li>
             <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Prediction</a></li>
-            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Report</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="report/Proposal_for_Data_Science.pdf" download>Report</a></li>
           </ul>
         </nav>
         <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
@@ -131,21 +131,22 @@
 
         <div class="row mb-5">
           <select id = "visualize" class="select-css" onChange="OnSelectedIndexChange()">
-            <option value="5"> Main </option>
-            <option value="1"> General Information </option>
-            <option value="2"> General Factor Correlation </option>
+            <option value="1"> Main </option>
+            <option value="2"> General Information </option>
             <option value="3"> Economy Influence </option>
             <option value="4"> Other Influence </option>
           </select>
         </div>
 
         <div id="vis-result" class="row mb-5">
+          <!--<img src="image/visualization/10_region.png"> <br>-->
+          <!--<img src="image/visualization/wordcloud.png"> <br>-->
           <div id="worldmap" class="row mb-5 worldmap"></div>
-          <img src="image/visualization/wordcloud.png"> <br>
         </div>
         <br>
 
         <div id="vis-result2" class="row"></div> <br>
+        <div id="vis-result3" class="row"></div> <br>
 
         <br>
         <div id="vis-economy" class="row mb-5"></div>
@@ -199,6 +200,8 @@
         var img = document.createElement("img");
         var img2 = document.createElement("img");
         var img3 = document.createElement("img");
+        var img4 = document.createElement("img");
+        var img5 = document.createElement("img");
 
         var img_e1 = document.createElement("img");
         var img_e2 = document.createElement("img");
@@ -212,43 +215,51 @@
         var result3 = document.getElementById("vis-result3");
         var res_economy = document.getElementById("vis-economy");
 
-        if (document.getElementById('visualize').value == "5"){
+        if (document.getElementById('visualize').value == "1"){
           $('#vis-result').empty();
           $('#vis-result2').empty();
+          $('#vis-result3').empty();
           $('#vis-economy').empty();
-          img.src = "image/visualization/wordcloud.png";
-          result.appendChild(img);
+          <!--img.src = "image/visualization/10_region.png";-->
+          <!--result.appendChild(img);-->
+          <!--result2.appendChild(img2);-->
         }
-        else if (document.getElementById('visualize').value == "1"){
+        else if (document.getElementById('visualize').value == "2"){
           $('#vis-result').empty();
           $('#vis-result2').empty();
+          $('#vis-result3').empty();
           $('#vis-economy').empty();
           img.src = "image/visualization/happiness_rate.png";
           img2.src = "image/visualization/percentage.png";
-          result.appendChild(img);
-          result2.appendChild(img2);
-        }
-        else if (document.getElementById('visualize').value == "2"){
-          img.src = "image/visualization/correlation.png";
-          img2.src = "image/visualization/correlation_2.png";
-          $('#vis-result').empty();
-          $('#vis-result2').empty();
-          $('#vis-economy').empty();
-          result.appendChild(img);
-          result2.appendChild(img2);
+          img3.src = "image/visualization/10_region.png";
+          <!--result.appendChild(img);-->
+          <!--img3.src = "image/visualization/factors.png";-->
+          result.appendChild(img3);
+          result2.appendChild(img);
+          result3.appendChild(img2);
         }
         else if (document.getElementById('visualize').value == "3"){
-          img.src = "image/visualization/happiness_economy.png";
+          img.src = "image/visualization/happiness_economy2016.png";
           img2.src = "image/visualization/happiness_economy.jpg";
+          img3.src = "image/visualization/correlation.png";
+          img4.src = "image/visualization/happiness_economy2017.png";
+          img5.src = "image/visualization/happiness_economy2018.png";
+
           $('#vis-result').empty();
           $('#vis-result2').empty();
+          $('#vis-result3').empty();
           $('#vis-economy').empty();
 
           result.appendChild(img);
-          result2.appendChild(img2);
+          result.appendChild(img4);
+          result.appendChild(img5);
+
+          result2.appendChild(img3);
+          result3.appendChild(img2);
 
           img_e1.src = "image/visualization/health_economy.png";
           res_economy.appendChild(img_e1);
+          res_economy.append('1. Economy will affect the fundamental medical instrument in that country.   2. Economic opportunity motivates and enables people to invest in their health; its absence does the reverse.   3. Small policy details have large economic impacts on insurance coverage and costs.');
           img_e2.src = "image/visualization/family_economy.png";
           res_economy.appendChild(img_e2);
           img_e3.src = "image/visualization/freedom_economy.png";
@@ -262,10 +273,16 @@
         }
         else if (document.getElementById('visualize').value == "4"){
           img.src = "image/visualization/health_family.png";
+          img2.src = "image/visualization/relationship_violin.png";
+          img3.src = "image/visualization/correlation_scatter.png";
+
           $('#vis-result').empty();
           $('#vis-result2').empty();
+          $('#vis-result3').empty();
           $('#vis-economy').empty();
           result.appendChild(img);
+          result2.appendChild(img2);
+          result3.appendChild(img3);
         }
       }
     </script>

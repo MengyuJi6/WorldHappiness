@@ -45,11 +45,11 @@
       <div class="probootstrap-overflow">
         <nav class="probootstrap-nav">
           <ul>
-            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="index.html">Home</a></li>
+            <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="index.html">Home</a></li>
             <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">Visualization</a></li>
             <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Search</a></li>
             <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Prediction</a></li>
-            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Report</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="report/Proposal_for_Data_Science.pdf" download>Report</a></li>
           </ul>
         </nav>
         <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
@@ -153,7 +153,15 @@
             var Generosity = parseFloat(data[i].Generosity);
             var Trust = parseFloat(data[i].Trust);
             var Dystopia = parseFloat(data[i].Dystopia);
+            var sum = Economy + Family + Health + Freedom + Generosity + Trust + Dystopia;
 
+            var Economy = 100 * Economy / sum;
+            var Family = 100 * Family / sum;
+            var Health = 100 * Health / sum;
+            var Freedom = 100 * Freedom / sum;
+            var Generosity = 100 * Generosity / sum;
+            var Trust = 100 * Trust / sum;
+            var Dystopia = 100 * Dystopia / sum;
 
             var chart = new CanvasJS.Chart("chartContainer_2018", {
             animationEnabled: true,
@@ -197,6 +205,16 @@
             var Trust = parseFloat(data[j].Trust);
             var Dystopia = parseFloat(data[j].Dystopia);
 
+            var sum = Economy + Family + Health + Freedom + Generosity + Trust + Dystopia;
+
+            var Economy = 100 * Economy / sum;
+            var Family = 100 * Family / sum;
+            var Health = 100 * Health / sum;
+            var Freedom = 100 * Freedom / sum;
+            var Generosity = 100 * Generosity / sum;
+            var Trust = 100 * Trust / sum;
+            var Dystopia = 100 * Dystopia / sum;
+
             var chart = new CanvasJS.Chart("chartContainer_2017", {
             animationEnabled: true,
             title: {
@@ -238,6 +256,15 @@
             var Generosity = parseFloat(data[j].Generosity);
             var Trust = parseFloat(data[j].Trust);
             var Dystopia = parseFloat(data[j].Dystopia);
+            var sum = Economy + Family + Health + Freedom + Generosity + Trust + Dystopia;
+
+            var Economy = 100 * Economy / sum;
+            var Family = 100 * Family / sum;
+            var Health = 100 * Health / sum;
+            var Freedom = 100 * Freedom / sum;
+            var Generosity = 100 * Generosity / sum;
+            var Trust = 100 * Trust / sum;
+            var Dystopia = 100 * Dystopia / sum;
 
             var chart = new CanvasJS.Chart("chartContainer_2016", {
             animationEnabled: true,
